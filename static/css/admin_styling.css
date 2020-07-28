@@ -1,0 +1,70 @@
+.login{
+    width: 20%;
+    margin: 10px auto;
+}
+.main{
+    margin-top: 10px;
+}
+
+.table{
+    border: 1px solid black;
+}
+
+.badge{
+    font-size: 1em;
+}
+
+.custom-select{
+    margin-bottom: 5px;
+}
+
+.description{
+    margin-bottom: 5px;
+}
+
+.page-title{
+    text-align: center;
+    margin: -5px auto;
+}
+
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 812px) {
+
+    .login{
+        width: 50%;
+    }
+    .admin-nav{
+        width: 100%;
+    }
+    .logout{
+        margin-top: -10%;
+        margin-left: 80%;
+        width: fit-content;
+    }
+    .main{
+        overflow: auto;
+    }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,640 @@
+* { margin: 0px; padding: 0px; }
+
+html { height: 100%; box-sizing: border-box; }
+
+body {
+    position: relative;
+    margin: 0px;
+    padding-bottom: 1em;
+    min-height: 100%;
+    /* overflow: hidden; */
+}
+
+hr {border-top: 1px solid #0e1111; }
+
+a { text-decoration: none; color: inherit; }
+a:hover{color: inherit; text-decoration: none;}
+
+#price_show{
+    font-family: monospace;
+}
+
+#price_range{
+    /* overflow: hidden; */
+    outline: none;
+    border-radius: 10px;
+    -webkit-appearance: none;
+    background: white;
+}
+#price_range::-webkit-slider-thumb{
+    color: black;
+}
+
+.container{
+    overflow: auto;
+    margin-bottom: 5%;
+
+}
+
+.content{
+    /* display: table; */
+    margin-bottom: 150px;
+    min-height: 1000px;
+}
+.modelname{
+    font-family: sans-serif;
+    }
+.navbar{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #0e1111;
+}
+
+.singleimage{
+    float: left; 
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); 
+    width: 500px; 
+    height: 500px;
+}
+
+.content-main{
+    margin-bottom: 450px;
+}
+
+.banner{
+    margin: -5px auto;
+}
+
+.list-group{
+    height: auto;
+    width: 100%;
+    text-align: center;
+    margin-left: 6px;
+
+}
+
+.list-group-item{
+    width: 33%;
+    border: none;
+    padding: 0px;
+}
+
+.badge-span{
+    text-align: center;
+    color: black;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: 300;
+}
+.badge{
+    font-size: 115%;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: 400;
+    border-radius: 2px 2px 2px 2px;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.shoe_post{
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 0px;
+    margin-bottom: 1%;
+    width: 25%;
+    float: left;
+    box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem rgba(0,0,0,.08);
+
+}
+.shoe_post_index{
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 0px;
+    width: 23%;
+    float: left;
+    box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem rgba(0,0,0,.08);
+
+}
+.sortbtn{
+    background: white;
+    color: black;
+}
+.dropdown{
+    margin-left: 955px;
+    position: absolute;
+    margin-top: -30px;
+}
+
+.shoe_img{
+    margin: 1px 0px;
+    background-size: 100%;
+}
+.addition{
+    width: 23%;
+}
+.img-thumbnail{
+    border: none;
+}
+
+.shoe_info{
+    margin: 0px 5px;
+}
+
+.shoe_info span{
+    font-family: monospace;
+}
+
+.filtered_title{
+    margin-left: 10px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: 0px auto;
+    border-radius: 6px 6px 0px 0px;
+}
+
+.social-icons{
+    margin: 0px auto 6px;
+    width: 30%;
+}
+
+.social-icon{
+    background-color: black;
+    margin: 0px 4px;
+    width: auto;
+    float: left;
+    text-align: center;
+}
+
+.fa-facebook {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #000000;
+}
+
+.fa-facebook:hover {
+	background-color: #3d5b99;
+}
+
+.fa-instagram {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #000000;
+}
+
+.fa-instagram:hover {
+	background-color: #ff8000;
+}
+
+.social-phone{
+    background-color: black;
+    font-family: monospace;
+    margin: 0px 4px;
+    width: auto;
+    font-size: 1.2em;
+    padding-top: 8px;
+    text-align: center;
+    margin-left: 15px;
+    width: 100%;
+}
+
+.social-or{
+    background-color: black;
+    font-family: monospace;
+    margin: 0px 4px;
+    width: auto;
+    font-size: 1.2em;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.post{
+    height: 600px;
+}
+
+.postcard{
+    width: 56%;
+    margin-bottom: 15px;
+    float: left;
+}
+
+.singleimage{
+    float: left; 
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22); 
+    width: 500px; 
+    height: 500px;
+    margin: 5px 0;
+    margin-left: 10%;
+}
+
+.postinfo{
+    float: left;
+    margin-left: 0%;
+    margin-top: 5px;
+    font-size: 1.3rem;
+    width: 39%;
+}
+
+.shoe-sex{
+    margin: 1px 0px;
+    font-size: 15px;
+    width: 50%;
+    color: grey;
+    float: left;
+
+}
+
+.shoeprice{
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    float: right;
+}
+
+.size-shoe {
+    float: left;
+    font-size: 1.1rem;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+.size-shoe span {
+   font-family: monospace;
+   font-weight: 500;
+}
+
+
+.material-shoe {
+    float: left;
+    font-size: 1.1rem;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+.material-shoe span {
+    font-family: monospace;
+    font-weight: 500;
+}
+
+.season-shoe {
+    float: left;
+    font-size: 1.1rem;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+.season-shoe span {
+    font-family: monospace;
+    font-weight: 500;
+}
+
+.description-shoe {
+    float: left;
+    font-size: 1.1rem;
+    width: 100%;
+    margin-top: -10px;
+    font-family: sans-serif;
+}
+
+.description-shoe span {
+    font-family: monospace;
+    font-weight: 500;
+}
+
+.carousel-item{
+    margin-bottom: 35px;
+}
+
+.filtered_posts{
+    width: 100%;
+    margin-left: 20%;
+    float: left;
+}
+
+.filtered-main{
+    width: 10%;
+    position: absolute;
+    /* margin-top: -32%; */
+    float: left;
+    
+}
+.filteredmain{
+    min-height: fit-content;
+}
+
+.checkbox {
+    font-family: monospace;
+}
+
+.list-group-item{
+    width: 40%;
+}
+
+.nosimilar{
+    font-family: monospace;
+    font-weight: 500;
+    font-size: 20px;
+    float: left;
+
+}
+
+.all_posts{
+    width: 100%;
+    margin-left: 20%;
+}
+
+.chosen {
+   text-decoration: underline;
+   font-weight: 500;
+  }
+
+.callback{
+    float: left;
+    margin-top: 5%;
+    margin-left: -18%; 
+}
+
+.callbackbutton{
+    /* margin-right: 30%; */
+    margin-bottom: 10px;
+    float: left;
+}
+.divshow{
+    left: -35px;
+    border: 1px solid;
+}
+
+/* .submitbutton{
+    margin-top: 5px;
+} */
+
+input{
+    margin-bottom: 5px;
+}
+.footphone{
+    width: 100%;
+}
+/* .season{
+    width: 70%; 
+    margin-left: 20px;
+} */
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 812px) {
+/* @media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3) {  */
+
+    hr{
+        margin: 5px 0px;
+    }
+    h6{
+        font-size: 13px;
+    }
+    .add{
+        margin-top: 3%;
+    }
+    .container{
+        overflow: hidden;
+        margin-bottom: 13%;
+        padding-left: 0px;
+        padding-right: 0px;
+        height: fit-content;
+    }
+    .sortbtn{
+        font-size: 10px;
+    }
+    .dropdown{
+    margin-left: 5px;
+    position: absolute;
+    margin-top: -30px;
+    }
+    .allmain{
+        min-height: 800px;
+    }
+    .filteredmain{
+        min-height: 910px;
+    }
+    .navbar-brand{
+        margin: 0px auto;
+    }
+    .navbar-logo{
+        font-size: 1.3rem;
+    }
+    .nav-item{
+        float: left;
+        margin-right: 20px;
+    }
+    .navbar-nav{
+        width: fit-content;
+        margin: 0px auto;
+    }
+    .navbar-collapse{
+        margin-top: -15px;
+    }
+    .banner-list{
+        width: 20%;
+        font-size: 1em;
+    }
+    .banner-group{
+        margin: 15px 0px;
+        flex-direction: row;
+        width: 150%;
+        font-size: 14px;
+        margin-left: 15px;
+    }
+    .banner-link{
+        padding: 0px;
+    }
+    .shoe_post_index{
+        width: 45%;
+        min-height: 250px;
+    }
+    .sortlist{
+        font-size: 12px;
+        padding-left: 2px;
+        padding-top: 2px;
+        padding-right: 2px;
+        padding-bottom: 2px;
+    }
+    .shoe_price{
+        margin: 0px;
+    }
+    .shoe_name{
+        min-height: 50px;
+        font-size: 15px;
+        font-weight: 300;
+    }
+    .carousel-item{
+        margin-bottom: 15px;
+    }
+    .badge{
+        font-size: 65%;
+        font-weight: 500;
+
+    }
+    .footer{
+        margin: 0;
+    }
+    ._14{
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .social-icons{
+        width: 100%;
+        margin: 0px;
+        margin-top: -10px;
+        margin-bottom: 5px;
+    }
+    .facebook{
+        width: fit-content;
+        margin-left: 75px;
+    }
+    .instagram{
+        width: fit-content;
+        float: left;
+        margin-left: 115px;
+        margin-top: -35px;
+    }
+    .or{
+        margin-left: 165px;
+        width: 10%;
+        margin-top: -37px;
+    }
+    .footphone{
+        margin-top: -37px;
+        width: 40%;
+        margin-left: 205px;
+    }
+    .footOr{
+        font-weight: 300;
+        font-size: 20px;
+    }
+    .filtered-main{
+        margin-left: 2%;
+        width: 22%;
+    }
+    .all_posts{
+        margin-top: -10px;
+    }
+    .shoe_post{
+        min-height: 195px;
+        margin-left: 35px;
+        width: 32%;
+        margin-right: -21px;
+    }
+    .notfound{
+        margin-top: 5%;
+        font-size: 15px;
+        margin-left: 10%;
+    }
+    .filtered_posts{
+        float: left;
+    }
+    .shoe_post_filtered{
+        min-height: 195px;
+        margin-left: 30px;
+        width: 32%;
+        margin-right: -15px;
+    }
+    .brand-filtered{
+        font-weight: 400;
+        margin-bottom: 0%;
+        min-height: 55px;
+    }
+    .price-filtered{
+        margin-bottom: 0px;
+    }
+    .carousel-inner {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+    .singleimage {
+        float: left;
+        box-shadow: 0 0px 0px;
+        width: 375px;
+        height: 375px;
+        margin: 5px 0;
+        /* margin-left: 10%; */
+    }
+    .postcard {
+        width: 100%;
+        margin-top: 20%;
+    }
+    .postinfo{
+        width: 100%;
+        margin-left: 5%;
+    }
+    .shoe-sex{
+        margin-top: -130%;
+    }
+    .shoeprice{
+        margin-top: -130%;
+        margin-right: 10%;
+    }
+    .modelname{
+    width: 90%;
+    margin-top: -132%;
+    font-family: sans-serif;
+    }
+    .post{
+        /* margin-bottom: 65%; */
+        height: fit-content;
+    }
+    .description-shoe{
+        width: 90%;
+    }
+    .callback{
+        margin-bottom: 0%;
+        margin-left: 5%;
+        width: 90%;
+        margin-top: 0%;
+    }
+    .callbackbutton{
+        margin-left: 5%;
+        margin-bottom: 1rem;
+    }
+    .div-shoe-type {
+        width: 100%;
+        float: left;
+    }
+    .addition{
+        margin-right: 5px;
+        width: 45%;
+        min-height: 250px;
+        margin-left: 10px;
+    }
+    .p-shoe-type{
+        margin-bottom: 6px;
+    }
+    .nosimilar{
+        font-weight: 400;
+        margin-left: 3%;
+        font-size: 15px;
+    }
+    
+
+
+
+
+
+
+
+
+
+
+}
