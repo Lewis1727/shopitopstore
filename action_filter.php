@@ -69,10 +69,10 @@ if(isset($_POST["action"]))
                     <div class="shoe_img">
                         <img src="'. BASE_URL . 'static/images/' . $row['image_1'] . '" class="img-thumbnail" alt="">
                     </div>    
-                    <a href="single_post.php?modelname='. $row['modelname'] . '">
+                    <a href="single_post.php?id='. $row['id'] . '">
                         <div class="shoe_info">
-                            <h6>'. $row["brand"] . " " . $row["modelname"] . '</h6>
-                            <span><p>'.$row['price'].'</p></span>
+							<h6>'. $row["modelname"] . " | " . $row["brand"] . '</h6>
+                            <span><p>'.$row['price']. ' UAH' .'</p></span>
                         </div>
                     </a>
                 </div>';

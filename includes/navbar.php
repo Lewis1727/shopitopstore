@@ -10,10 +10,10 @@
             <a class="nav-link" href="/">Главная<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Про нас</a>
+          <a class="nav-link" href="/about.php">Про нас</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Контакты</a>
+          <a class="nav-link" href="/contacts.php">Контакты</a>
         </li>
     </ul>
 </div>

@@ -10,7 +10,7 @@
 
 <?php if (isset($_SESSION['user']['username'])): ?>  
     <?php if ($_SESSION['user']['role'] == "admin"): ?>
-        <div class="container">
+        <div class="container" style="overflow: unset;">
             <?php include( ROOT_PATH . '/admin/includes/navbar.php') ?>
         
             <?php if (empty($posts)): ?>
@@ -20,6 +20,7 @@
                 <table class="table table-bordered table-hover">
                     <thead class="">
                         <th></th>
+                        <th>Номер</th>
                         <th>Название модели</th>
                         <th>Бренд</th>
                         <th>Размер</th>
@@ -37,10 +38,11 @@
                         <?php foreach ($posts as $key => $post): ?>
                             <tr>
                                 <td><?php echo $key + 1; ?></td>
+                                <td><?php echo $post['number']; ?></td>
                                 <td><a 	target="_blank"
-								        href="<?php echo BASE_URL . 'single_post.php?modelname=' . $post['modelname'] ?>">
+								        href="<?php echo BASE_URL . 'single_post.php?id=' . $post['id'] ?>">
 									    <?php echo $post['modelname']; ?>	
-								</a></td>
+								</a></td>	
                                 <td><?php echo $post['brand']; ?></td>
                                 <td><?php echo $post['size']; ?></td>
                                 <td><?php echo $post['price']; ?></td>
@@ -85,3 +87,4 @@
 
 </body>
 </html>
+

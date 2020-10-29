@@ -1,30 +1,48 @@
-<?php 
-if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['modelname'])){
-$name = $_POST['name'];
-$phone = $_POST['phone'];
-$modelname = $_POST['modelname'];
-$myemail = 'daniil2003478@gmail.com';
-$to = $myemail;
-$subject = 'New Order';
-$body = '<html>
-            <body>
-                <h2>New Order</h2>
-                <hr>
-                <p>Name:<br>'.$name.'</p>
-                <p>Phone:<br>'.$phone.'</p>
-                <p>Modelname:<br>'.$modelname.'</p>
-            </body>
-        </html>';
+<?php
 
-$headers = "From: $myemail\n";
+include "vendor/autoload.php";
 
-$send = mail($to, $subject, $body, $headers);
-if ($send){
-    echo '<br>';
-    echo 'order was sent';
-} else {
-    echo 'something is wrong';
+use Telegram\Bot\Api;
+
+if (isset($_POST['name']) && isset($_POST['phone']) && isset($_POST['modelname']) && isset($_POST['number'])){
+
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $modelname = $_POST['modelname'];
+    $number = $_POST['number'];
+    if (empty($name)) {
+        $error = true;
+    }
+    if (empty($phone)) {
+        $error = true;
+    }
+    if ($error) {
+       // echo "Заполните все поля";
+     echo "<script>
+        alert('Заполните все поля для отправки.');
+        javascript:location.href=document.referrer;
+        </script>";
+
+    } else {
+        $message = '
+новый заказ
+-------------------
+Имя: '.$name.'   
+Телефон: '.$phone.'
+Название модели: '.$modelname.'
+Код обуви: '.$number.'
+';
+
+        $bot = new \TelegramBot\Api\BotApi('1392313760:AAGfAtStSt0GiUsIeAWSXSDV1ZJeMCOOvNY');
+        $chat_id = "-464283568";
+
+        $response = $bot->sendMessage($chat_id, $message);
+
+        echo "<script>
+        alert('Заказ оформлен, в ближайшее время мы вам позвоним.');
+        window.location.href='/';
+        </script>";
+    }  
 }
-header('Location: ' . $_SERVER['HTTP_REFERER']);
-}
+
 ?>

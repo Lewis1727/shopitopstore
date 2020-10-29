@@ -10,66 +10,67 @@
 ?>
     <!-- <title>Shopitop Store | </title> -->
 
-    <?php if (getSexNameByShoes($sex) == 'man') { ?>
+    <?php if (getSexNameByShoes($sex) == 'мужчин') { ?>
     <title>Shopitop Store | Men's</title>
     <?php } ?>
-    <?php if (getSexNameByShoes($sex) == 'woman') { ?>
+    <?php if (getSexNameByShoes($sex) == 'женщин') { ?>
     <title>Shopitop Store | Women's</title>
     <?php } ?>
-    <?php if (getSexNameByShoes($sex) == 'children') { ?>
+    <?php if (getSexNameByShoes($sex) == 'детей') { ?>
     <title>Shopitop Store | Children's</title>
     <?php } ?>
 
-    <link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>   
+    <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>   
 
 </head>
+<link rel="icon" type="image/png" href="/favicon.png"/>
 <body>
 <div class="container filteredmain" style="overflow-x: hidden;">
 
     <?php include( ROOT_PATH . '/includes/navbar.php'); ?>
     
     <hr>   
-    <?php if (getSexNameByShoes($sex) == 'man') { ?>
+    <?php if (getSexNameByShoes($sex) == 'мужчин') { ?>
         <div class="banner">
             <ul class="list-group banner-group list-group-horizontal-sm">
                 <li class="list-group-item banner-list">
-                    <a class="nav-link banner-link" href="filtered_shoes.php?sex=woman">Женская обувь</a>
+                    <a class="nav-link banner-link" href="filtered_shoes.php?sex=женщин">Женская обувь</a>
                 </li>
                 <li class="list-group-item banner-list">
-                    <a class="nav-link banner-link chosen" href="filtered_shoes.php?sex=man">Мужская обувь</a>
+                    <a class="nav-link banner-link chosen" href="filtered_shoes.php?sex=мужчин">Мужская обувь</a>
                 </li>
                 <li class="list-group-item banner-list">
-                    <a class="nav-link banner-link" href="filtered_shoes.php?sex=children">Детская обувь</a>
+                    <a class="nav-link banner-link" href="filtered_shoes.php?sex=детей">Детская обувь</a>
                 </li>
             </ul>
         </div>
     <?php } ?>
-    <?php if (getSexNameByShoes($sex) == 'woman') { ?>
+    <?php if (getSexNameByShoes($sex) == 'женщин') { ?>
         <div class="banner">
             <ul class="list-group banner-group list-group-horizontal-sm">
                 <li class="list-group-item  banner-list">
-                    <a class="nav-link banner-link chosen" href="filtered_shoes.php?sex=woman">Женская обувь</a>
+                    <a class="nav-link banner-link chosen" href="filtered_shoes.php?sex=женщин">Женская обувь</a>
                 </li>
                 <li class="list-group-item banner-list">
-                    <a class="nav-link banner-link" href="filtered_shoes.php?sex=man">Мужская обувь</a>
+                    <a class="nav-link banner-link" href="filtered_shoes.php?sex=мужчин">Мужская обувь</a>
                 </li>
                 <li class="list-group-item banner-list">
-                    <a class="nav-link banner-link" href="filtered_shoes.php?sex=children">Детская обувь</a>
+                    <a class="nav-link banner-link" href="filtered_shoes.php?sex=детей">Детская обувь</a>
                 </li>
             </ul>
         </div>
     <?php } ?>
-    <?php if (getSexNameByShoes($sex) == 'children') { ?>
+    <?php if (getSexNameByShoes($sex) == 'детей') { ?>
         <div class="banner">
             <ul class="list-group banner-group list-group-horizontal-sm">
                 <li class="list-group-item banner-list">
-                    <a class="nav-link banner-link" href="filtered_shoes.php?sex=woman">Женская обувь</a>
+                    <a class="nav-link banner-link" href="filtered_shoes.php?sex=женщин">Женская обувь</a>
                 </li>
                 <li class="list-group-item banner-list">
-                    <a class="nav-link banner-link" href="filtered_shoes.php?sex=man">Мужская обувь</a>
+                    <a class="nav-link banner-link" href="filtered_shoes.php?sex=мужчин">Мужская обувь</a>
                 </li>
                 <li class="list-group-item banner-list">
-                    <a class="nav-link banner-link chosen" href="filtered_shoes.php?sex=children">Детская обув</a>
+                    <a class="nav-link banner-link chosen" href="filtered_shoes.php?sex=детей">Детская обувь</a>
                 </li>
             </ul>
         </div>
@@ -85,9 +86,9 @@
                 <div class="shoe_img">
                     <img src="<?php echo BASE_URL . 'static/images/' . $shoe['image_1']; ?>" class="img-thumbnail" alt="">
                 </div>    
-                <a href="single_post.php?modelname=<?php echo $shoe['modelname']; ?>">
+                <a href="single_post.php?id=<?php echo $shoe['id']; ?>">
                     <div class="shoe_info">
-                        <h6 class="brand-filtered"><?php echo $shoe['brand'],' ', $shoe['modelname']; ?></h6>
+                        <h6 class="brand-filtered"><?php echo $shoe['modelname'],' | ', $shoe['brand']; ?></h6>
                         <span><p class="price-filtered"><?php echo $shoe['price'] . ' UAH'; ?></p></span>
                     </div>
                 </a>
@@ -255,5 +256,5 @@
     </script>
 
 
-<?php include( ROOT_PATH . '/includes/footer.php'); ?>
+<?php include( ROOT_PATH . '/includes/footer_fixed.php'); ?>
 

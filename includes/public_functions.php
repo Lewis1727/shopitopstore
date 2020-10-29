@@ -60,10 +60,10 @@ function getSexNameByShoes($sex)
 	return $shoes['sex'];
 }
 
-function getPost($modelname){
+function getPost($id){
 	global $conn;
-	$modelname = $_GET['modelname'];
-	$sql = "SELECT * FROM shoes WHERE modelname='$modelname' AND sold=0";
+	$id = $_GET['id'];
+	$sql = "SELECT * FROM shoes WHERE id='$id' AND sold=0";
 	$result = mysqli_query($conn, $sql);
 	$shoe = mysqli_fetch_assoc($result);
 	return $shoe;
@@ -72,7 +72,7 @@ function getPost($modelname){
 function getSpringShoes()
 {
     global $conn;
-    $sql = "SELECT * FROM shoes WHERE season='spring-summer' and sold=false";
+    $sql = "SELECT * FROM shoes WHERE season='весна-лето' and sold=false";
     $result = mysqli_query($conn, $sql);
     $shoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -89,7 +89,7 @@ function getSpringShoes()
 function getAutumnShoes()
 {
     global $conn;
-    $sql = "SELECT * FROM shoes WHERE season='autumn-winter' and sold=false";
+    $sql = "SELECT * FROM shoes WHERE season='осень-зима' and sold=false";
     $result = mysqli_query($conn, $sql);
     $shoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
 

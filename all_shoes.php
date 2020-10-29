@@ -2,10 +2,11 @@
 <?php require_once( ROOT_PATH . '/includes/public_functions.php') ?>
 
 <?php require_once( ROOT_PATH . '/includes/head_section.php') ?>
-<link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>   
+<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>   
 
 <title>ShopitopStore | Shoes </title>
 </head>
+<link rel="icon" type="image/png" href="/favicon.png"/>
 <body>
 <div class="container" style="overflow-x: hidden;"> 
     <?php include( ROOT_PATH . '/includes/navbar.php') ?>
@@ -22,21 +23,21 @@
                 <hr>
                 <a href="./all_shoes.php?sort=2" class="dropdown-item sortlist" href="">цена от меньшей к большей</a>
                 <hr>
-                <a href="./all_shoes.php?sort=3" class="dropdown-item sortlist" href="">цена от большейе к меньшей</a>
+                <a href="./all_shoes.php?sort=3" class="dropdown-item sortlist" href="">цена от большей к меньшей</a>
             </div>
         </div>
 
 
-    <div class="filtered-main">       
+    <div class="filtered-main" style="margin-top: 0px">       
 
             <h6>Цена</h6>
 				<input type="hidden" id="hidden_minimum_price" value="0" />
                 <input type="hidden" id="hidden_maximum_price" value="5000" />
-                <p id="price_show">0 UAH - 5000 UAH</p>
+                <p id="price_show">0 грн - 5000 грн</p>
                 <div id="price_range"></div>
 
             <hr>
-            <h6>Пол</h6>
+            <h6>Для</h6>
             <?php 
                     global $conn;
                     $sql = "SELECT DISTINCT(sex) FROM shoes WHERE sold = '0' ORDER BY id ";
@@ -71,6 +72,24 @@
                 <?php } ?>
             
             <hr>
+
+		<h6>Размер</h6>
+                <?php 
+                    global $conn;
+                    $sql = "SELECT DISTINCT(size) FROM shoes WHERE sold = '0' ORDER BY ABS(size) ";
+                    $result = mysqli_query($conn, $sql);
+                    $shoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    foreach($result as $row){
+                ?>
+                <div class="list-group-item checkbox" style="width: 70%; margin-left: 20px;">
+                    <label>
+                        <input  type="checkbox" class="form-check-input product_check size" id="size" name="size" value="<?php echo $row['size']; ?>"> 
+                        <?php echo $row['size']; ?>
+                    </label>
+                </div>
+                <?php } ?>
+	    
+		<hr>
 
             <h6>Бренд</h6>
                 <?php 
@@ -124,23 +143,6 @@
                 </div>
                 <?php } ?>
 
-            <hr>
-
-            <h6>Размер</h6>
-                <?php 
-                    global $conn;
-                    $sql = "SELECT DISTINCT(size) FROM shoes WHERE sold = '0' ORDER BY ABS(size) ";
-                    $result = mysqli_query($conn, $sql);
-                    $shoes = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                    foreach($result as $row){
-                ?>
-                <div class="list-group-item checkbox" style="width: 70%; margin-left: 20px;">
-                    <label>
-                        <input  type="checkbox" class="form-check-input product_check size" id="size" name="size" value="<?php echo $row['size']; ?>"> 
-                        <?php echo $row['size']; ?>
-                    </label>
-                </div>
-                <?php } ?>
             
             
         </div>
@@ -167,10 +169,10 @@
                         <div class="shoe_img">
                             <img src="<?php echo BASE_URL . 'static/images/' . $shoe['image_1']; ?>" class="img-thumbnail" alt="">
                         </div>    
-                        <a href="single_post.php?modelname=<?php echo $shoe['modelname']; ?>">
-                            <div class="shoe_info">
+                        <a href="single_post.php?id=<?php echo $shoe['id']; ?>">
+                            <div class="shoe_info all_h6">
                                 <h6 class="brand-filtered"><?php echo $shoe['modelname'],'|', $shoe['brand']; ?></h6>
-                                <span><p class="price-filtered"><?php echo $shoe['price'] . ' UAH'; ?></p></span>
+                                <span><p class="price-filtered"><?php echo $shoe['price'] . ' грн'; ?></p></span>
                             </div>
                         </a>
                     </div>
@@ -199,7 +201,7 @@
                 step:10,
                 stop:function(event, ui)
                 {
-                    $('#price_show').html(ui.values[0] + ' UAH' + ' - ' + ui.values[1] + ' UAH');
+                    $('#price_show').html(ui.values[0] + ' грн' + ' - ' + ui.values[1] + ' грн');
                     $('#hidden_minimum_price').val(ui.values[0]);
                     $('#hidden_maximum_price').val(ui.values[1]);
                     filter_data();
@@ -243,4 +245,4 @@
      
 
 
-    <?php include( ROOT_PATH . '/includes/footer.php') ?>
+    <?php include( ROOT_PATH . '/includes/footer_fixed.php') ?>

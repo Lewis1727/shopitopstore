@@ -25,24 +25,23 @@
                         <?php endif ?>
 
                         <input class="form-control" type="text" name="modelname" value="<?php echo $modelname; ?>" placeholder="Название модели">
+                        
+                         <input type="text" class="form-control" name="number" value="<?php echo $number; ?>" placeholder="Номер обуви">
 
                         <input class="form-control" type="text" name="brand" value="<?php echo $brand; ?>" placeholder="Бренд">
 
                        
-                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="size" value="<?php echo $size; ?>">
+                        <!-- <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="size" value="<?php echo $size; ?>">
                             <?php if ($isEditingPost === true): ?>
-                                <option selected><?php echo $size; ?></option>
-                                <?php for ($i = 17; $i <= 46; $i++) {
-                                    echo '<option value="'.$i.'">'.$i.'</option>';
-                                } ?>      
+                                   
                             <?php else: ?>
-                                <option selected>Размер...</option>
-                                <?php for ($i = 17; $i <= 46; $i++) {
-                                    echo '<option value="'.$i.'">'.$i.'</option>';
-                                } ?>
+                                <input class="form-control" type="text" name="size" value="<?php echo $size; ?>" placeholder="Размер">
+                                
                             <?php endif ?>
-                        </select>
-
+                        </select> -->
+                    
+                        <input type="text" class="form-control" name="size" value="<?php echo $size; ?>" placeholder="Размер">
+                      
                         <input type="text" class="form-control" name="price" value="<?php echo $price; ?>" placeholder="Цена">
 
                         <input class="form-control" type="text" name="material" value="<?php echo $material; ?>" placeholder="Материал">
@@ -52,14 +51,14 @@
                         <select class="custom-select mr-sm-2" name="sex" value="<?php echo $sex; ?>">
                             <?php if ($isEditingPost === true): ?>
                                 <option selected><?php echo $sex; ?></option>
-                                <option>man</option>
-                                <option>woman</option>
-                                <option>children</option>
+                                <option>мужчин</option>
+                                <option>женщин</option>
+                                <option>детей</option>
                             <?php else: ?>
-                                <option selected>Пол...</option>
-                                <option>man</option>
-                                <option>woman</option>
-                                <option>children</option>
+                                <option selected>Для...</option>
+                                <option>мужчин</option>
+                                <option>женщин</option>
+                                <option>детей</option>
                             <?php endif ?>
                         </select>
 
@@ -78,12 +77,12 @@
                         <select class="custom-select mr-sm-2" name="season" value="<?php echo $season; ?>">
                             <?php if ($isEditingPost === true): ?>
                                 <option selected><?php echo $season; ?></option>
-                                <option>spring-summer</option>
-                                <option>autumn-winter</option>
+                                <option>весна-лето</option>
+                                <option>осень-зима</option>
                             <?php else: ?>
                                 <option selected>Сезон...</option>
-                                <option>spring-summer</option>
-                                <option>autumn-winter</option>
+                                <option>весна-лето</option>
+                                <option>осень-зима</option>
                             <?php endif ?>
                         </select>
 
@@ -126,3 +125,4 @@
     
 </body>
 </html>
+

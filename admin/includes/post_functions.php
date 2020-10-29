@@ -2,6 +2,7 @@
 //variables
 $post_id = 0;
 $modelname = '';
+$number = '';
 $brand = '';
 $size = '';
 $price = '';
@@ -63,7 +64,8 @@ function esc(String $value){
 
 function createPost($request_values)
 {
-    global $conn, $errors, $post_id, $modelname, $brand,$size,$price ,$material , $description, $sex ,$sold ,$season ,$shoe_type,  $image_1, $image_2, $image_3, $image_4, $image_5, $image_6;
+    global $conn, $errors, $post_id, $number, $modelname, $brand,$size,$price ,$material , $description, $sex ,$sold ,$season ,$shoe_type,  $image_1, $image_2, $image_3, $image_4, $image_5, $image_6;
+    $number = esc($request_values['number']);
     $modelname = esc($request_values['modelname']);
     $brand = esc($request_values['brand']);
     $size = esc($request_values['size']);
@@ -75,6 +77,7 @@ function createPost($request_values)
     $season = esc($request_values['season']);
     $shoe_type = esc($request_values['shoe_type']);
 
+    if (empty($number)) { array_push($errors, "Number is required"); }
     if (empty($modelname)) { array_push($errors, "Modelname is required"); }
     if (empty($brand)) { array_push($errors, "Brand is required"); }
     if ($size == 'Size...') { array_push($errors, "Size is required"); }
@@ -107,21 +110,24 @@ function createPost($request_values)
     if (!move_uploaded_file($_FILES['image_3']['tmp_name'], $target)) {
         array_push($errors, "Failed to upload image. Please check file settings for your server");
     }}
-
+    
+    $image_4 = $_FILES['image_4']['name'];
     if (!empty($image_4)){
     $image_4 = $_FILES['image_4']['name'];
     $target = "../static/images/" . basename($image_4);
     if (!move_uploaded_file($_FILES['image_4']['tmp_name'], $target)) {
         array_push($errors, "Failed to upload image. Please check file settings for your server");
     }}
-
+    
+    $image_5 = $_FILES['image_5']['name'];
     if (!empty($image_5)){
     $image_5 = $_FILES['image_5']['name'];
     $target = "../static/images/" . basename($image_5);
     if (!move_uploaded_file($_FILES['image_5']['tmp_name'], $target)) {
         array_push($errors, "Failed to upload image. Please check file settings for your server");
     }}
-
+    
+    $image_6 = $_FILES['image_6']['name'];
     if (!empty($image_6)){
     $image_6 = $_FILES['image_6']['name'];
     $target = "../static/images/" . basename($image_6);
@@ -129,14 +135,14 @@ function createPost($request_values)
         array_push($errors, "Failed to upload image. Please check file settings for your server");
     }}
 
-    $post_check_query = "SELECT * FROM shoes WHERE modelname='$modelname' LIMIT 1";
-    $result = mysqli_query($conn, $post_check_query);
-    if (mysqli_num_rows($result) > 0) {
-        array_push($errors, "A post already exists with that title.");
-    }
+//     $post_check_query = "SELECT * FROM shoes WHERE modelname='$modelname' LIMIT 1";
+//     $result = mysqli_query($conn, $post_check_query);
+//     if (mysqli_num_rows($result) > 0) {
+//         array_push($errors, "A post already exists with that title.");
+//     }
 
     if (count($errors) == 0) {
-        $query = "INSERT INTO shoes (modelname, brand, size, price, material , description, sex , sold , season , shoe_type, image_1, image_2, image_3, image_4, image_5, image_6) VALUES ('$modelname', '$brand', '$size', '$price' , '$material' , '$description', '$sex' ,'$sold' ,'$season' ,'$shoe_type',  '$image_1', '$image_2', '$image_3', '$image_4', '$image_5', '$image_6')";
+        $query = "INSERT INTO shoes (number, modelname, brand, size, price, material , description, sex , sold , season , shoe_type, image_1, image_2, image_3, image_4, image_5, image_6) VALUES ('$number', '$modelname', '$brand', '$size', '$price' , '$material' , '$description', '$sex' ,'$sold' ,'$season' ,'$shoe_type',  '$image_1', '$image_2', '$image_3', '$image_4', '$image_5', '$image_6')";
         var_dump($query);
         if(mysqli_query($conn, $query)){
             $_SESSION['message'] = "Post created successfully";
@@ -147,11 +153,12 @@ function createPost($request_values)
 }
 
 function editPost($post_id){
-    global $conn, $errors, $isEditingPost, $post_id, $modelname, $brand,$size,$price ,$material , $description, $sex ,$sold ,$season ,$shoe_type,  $image_1, $image_2, $image_3, $image_4, $image_5, $image_6;
+    global $conn, $errors, $isEditingPost, $post_id, $number, $modelname, $brand,$size,$price ,$material , $description, $sex ,$sold ,$season ,$shoe_type,  $image_1, $image_2, $image_3, $image_4, $image_5, $image_6;
     $sql = "SELECT * FROM shoes WHERE id=$post_id LIMIT 1";
     $result = mysqli_query($conn, $sql);
     $post = mysqli_fetch_assoc($result);
 
+    $number = $post['number'];
     $modelname = $post['modelname'];
     $brand =$post['brand'];
     $size = $post['size'];
@@ -166,7 +173,8 @@ function editPost($post_id){
 
 function updatePost($request_values)
 {
-    global $conn, $errors, $isEditingPost, $post_id, $modelname, $brand,$size,$price ,$material , $description, $sex ,$sold ,$season ,$shoe_type,  $image_1, $image_2, $image_3, $image_4, $image_5, $image_6;
+    global $conn, $errors, $isEditingPost, $post_id, $number, $modelname, $brand,$size,$price ,$material , $description, $sex ,$sold ,$season ,$shoe_type,  $image_1, $image_2, $image_3, $image_4, $image_5, $image_6;
+    $number = esc($request_values['number']);
     $modelname = esc($request_values['modelname']);
     $brand = esc($request_values['brand']);
     $size = esc($request_values['size']);
@@ -179,6 +187,7 @@ function updatePost($request_values)
     $shoe_type = esc($request_values['shoe_type']);
     $post_id = esc($request_values['post_id']);
 
+    if (empty($number)) { array_push($errors, "Number is required"); }
     if (empty($modelname)) { array_push($errors, "Modelname is required"); }
     if (empty($brand)) { array_push($errors, "Brand is required"); }
     if ($size == 'Size...') { array_push($errors, "Size is required"); }
@@ -191,7 +200,7 @@ function updatePost($request_values)
     if (empty($shoe_type)) { array_push($errors, "Shoe type is required"); }
 
     if (count($errors) == 0) {
-        $query = "UPDATE shoes SET modelname='$modelname', brand='$brand', size='$size', price='$price', material='$material', description='$description', sex='$sex', sold='$sold', season='$season', shoe_type='$shoe_type' WHERE id='$post_id'";
+        $query = "UPDATE shoes SET number='$number', modelname='$modelname', brand='$brand', size='$size', price='$price', material='$material', description='$description', sex='$sex', sold='$sold', season='$season', shoe_type='$shoe_type' WHERE id='$post_id'";
         //var_dump($query);
         if(mysqli_query($conn, $query)){ 
             $_SESSION['message'] = "Post updated successfully";
@@ -214,5 +223,6 @@ function deletePost($post_id)
         exit(0);
         }
 }
+
 
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="google-site-verification" content="tFplPcOfqbw7lF0oq9I7YXKKNQjLeH-aoWB30qtL4XI" />
 
 	<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 

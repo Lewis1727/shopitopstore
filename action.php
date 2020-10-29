@@ -1,4 +1,6 @@
 <?php require_once('config.php') ?>
+<?php require_once( ROOT_PATH . '/includes/public_functions.php') ?>
+
 <?php
 //global $conn;
 // include('config.php');
@@ -66,33 +68,87 @@ if(isset($_POST["action"]))
 		";
     }
 		
-    $result = mysqli_query($conn, $query );
+	$result = mysqli_query($conn, $query );
+	// var_dump($result);
     $output = '';
     
 	if($result->num_rows>0)
 	{	
 
-
+		
         while($row=$result->fetch_assoc())
 		{
+
+			// if (empty($_GET)):
+			// 	array_multisort(array_column($row, "created_at"), SORT_DESC, $output); 
+			// elseif ($_GET["sort"] == "1"):
+			// 	array_multisort(array_column($row, "modelname"), SORT_ASC, $output); 
+			// elseif ($_GET["sort"] == "2"):
+			// 	array_multisort(array_column($row, "price"), SORT_ASC, $output); 
+			// elseif ($_GET["sort"] == "3"):    
+			// 	array_multisort(array_column($row, "price"), SORT_DESC, $output); 
+			// endif;
+
+
             $output .= ' 
                 <div class="shoe_post">
                     <div class="shoe_img">
                         <img src="'. BASE_URL . 'static/images/' . $row['image_1'] . '" class="img-thumbnail" alt="">
                     </div>    
-                    <a href="single_post.php?modelname='. $row['modelname'] . '">
+                    <a href="single_post.php?id='. $row['id'] . '">
                         <div class="shoe_info">
-                            <h6>'. $row["brand"] . " " . $row["modelname"] . '</h6>
+                            <h6>'. $row["modelname"] . " | " . $row["brand"] . '</h6>
                             <span><p>'.$row['price']. ' UAH' .'</p></span>
                         </div>
                     </a>
-                </div>';
+				</div>';
+				
+				
 		}
+
+						
+
+		// while($row=$result->fetch_assoc())
+		// {
+        //     $output .= ' 
+		// 	<div class="all_posts">'.
+		// 		 $shoes = getShoes(); 
+		
+					
+		// 			if (empty($_GET)):
+		// 				array_multisort(array_column($shoes, "created_at"), SORT_DESC, $shoes); 
+		// 			elseif ($_GET["sort"] == "1"):
+		// 				array_multisort(array_column($shoes, "modelname"), SORT_ASC, $shoes); 
+		// 			elseif ($_GET["sort"] == "2"):
+		// 				array_multisort(array_column($shoes, "price"), SORT_ASC, $shoes); 
+		// 			elseif ($_GET["sort"] == "3"):    
+		// 				array_multisort(array_column($shoes, "price"), SORT_DESC, $shoes); 
+		// 			endif;
+					
+		
+		// 			foreach ($shoes as $shoe) :'
+		// 					<div class="shoe_post">
+		// 						<div class="shoe_img">
+		// 							<img src=" ' . BASE_URL . 'static/images/' . $shoe["image_1"] .' " class="img-thumbnail" alt="">
+		// 						</div>    
+		// 						<a href="single_post.php?modelname=' . $shoe["modelname"] .'">
+		// 							<div class="shoe_info">
+		// 								<h6 class="brand-filtered">' . $shoe['modelname'] . ','|', ' . $shoe['brand'] . '</h6>
+		// 								<span><p class="price-filtered">' .  $shoe['price'] . ' UAH' . '</p></span>
+		// 							</div>
+		// 						</a>
+		// 					</div>' . endforeach . '</div>';
+		// }
+
+
+
+		
 	}
 	else
 	{
 		$output = '<h5 class="notfound">Обувь не найдена...</h5>';
 	}
+	
 	echo $output;
 }
 
