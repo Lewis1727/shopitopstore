@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 	mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-	$conn = mysqli_connect("localhost", "root", "!Monopolist1344", "SHOPITOPSTORE");
+	$conn = mysqli_connect("localhost", "root", "", "SHOPITOPSTORE");
 
 	if (!$conn) {
 		die("Error connecting to database: " . mysqli_connect_error());
